@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiventech - Digital Solutions & Innovation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Sora:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        .service-detail-section{
+            padding:100px 20px;
+            background:#f8fafc;
+        }
+
+        .container{
+            max-width:1300px;
+            margin:auto;
+        }
+
+        .service-detail-wrapper{
+            display:grid;
+            grid-template-columns:1.1fr 0.9fr;
+            gap:60px;
+            align-items:center;
+        }
+
+        .section-badge{
+            display:inline-block;
+            padding:10px 18px;
+            background:rgba(16,185,129,0.12);
+            color:#10B981;
+            border-radius:50px;
+            font-size:14px;
+            font-weight:600;
+            margin-bottom:20px;
+        }
+
+        .section-title{
+            font-size:48px;
+            line-height:1.2;
+            margin-bottom:25px;
+            color:#0f172a;
+        }
+
+        .section-description{
+            font-size:18px;
+            line-height:1.8;
+            color:#475569;
+            margin-bottom:40px;
+        }
+
+        .sub-title{
+            font-size:28px;
+            margin-bottom:30px;
+            color:#111827;
+        }
+
+        .features-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+            margin-bottom:50px;
+        }
+
+        .feature-item{
+            display:flex;
+            align-items:flex-start;
+            gap:12px;
+            background:#fff;
+            padding:20px;
+            border-radius:18px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.05);
+            transition:0.3s;
+        }
+
+        .feature-item:hover{
+            transform:translateY(-5px);
+        }
+
+        .feature-icon{
+            width:28px;
+            height:28px;
+            min-width:28px;
+            border-radius:50%;
+            background:#10B981;
+            color:#fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:14px;
+            margin-top:2px;
+        }
+
+        .service-cta-box{
+            background:linear-gradient(135deg,#0f766e,#115e59);
+            padding:40px;
+            border-radius:30px;
+            color:#fff;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+
+        .service-cta-box h3{
+            font-size:30px;
+            margin-bottom:15px;
+        }
+
+        .service-cta-box p{
+            font-size:16px;
+            opacity:0.9;
+        }
+
+        .service-detail-image img{
+            width:100%;
+            max-width:550px;
+            display:block;
+            margin:auto;
+        }
+
+        @media(max-width:991px){
+
+            .service-detail-wrapper{
+                grid-template-columns:1fr;
+            }
+
+            .section-title{
+                font-size:38px;
+            }
+
+            .features-grid{
+                grid-template-columns:1fr;
+            }
+
+            .service-cta-box{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+        }
+
+        @media(max-width:767px){
+
+            .section-title{
+                font-size:32px;
+            }
+
+            .section-description{
+                font-size:16px;
+            }
+
+        }
+
+
+        /* FAQ SECTION */
+        .faq-section{
+            padding:100px 20px;
+            background:#ffffff;
+        }
+
+        .section-header{
+            text-align:center;
+            max-width:800px;
+            margin:0 auto 70px;
+        }
+
+        .section-badge{
+            display:inline-block;
+            padding:10px 18px;
+            background:rgba(16,185,129,0.12);
+            color:#10B981;
+            border-radius:50px;
+            font-size:14px;
+            font-weight:600;
+            margin-bottom:20px;
+        }
+
+        .section-title{
+            font-size:48px;
+            color:#0f172a;
+            margin-bottom:20px;
+        }
+
+        .section-description{
+            font-size:18px;
+            line-height:1.8;
+            color:#64748b;
+        }
+
+        .faq-wrapper{
+            max-width:1000px;
+            margin:auto;
+        }
+
+        .faq-category{
+            margin-bottom:50px;
+        }
+
+        .faq-category-title{
+            font-size:32px;
+            margin-bottom:25px;
+            color:#0f172a;
+        }
+
+        .faq-items{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        .faq-item{
+            background:#f8fafc;
+            border-radius:20px;
+            overflow:hidden;
+            border:1px solid #e2e8f0;
+            transition:0.3s;
+        }
+
+        .faq-item.active{
+            border-color:#10B981;
+            box-shadow:0 10px 30px rgba(16,185,129,0.12);
+        }
+
+        .faq-question{
+            width:100%;
+            padding:25px 30px;
+            background:none;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            font-size:18px;
+            font-weight:600;
+            color:#0f172a;
+            text-align:left;
+        }
+
+        .faq-icon{
+            font-size:28px;
+            color:#10B981;
+            min-width:30px;
+            text-align:center;
+        }
+
+        .faq-answer{
+            padding:0 30px 25px;
+            display:none;
+        }
+
+        .faq-item.active .faq-answer{
+            display:block;
+        }
+
+        .faq-answer p{
+            font-size:16px;
+            line-height:1.8;
+            color:#64748b;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+
+            .section-title{
+                font-size:34px;
+            }
+
+            .faq-category-title{
+                font-size:26px;
+            }
+
+            .faq-question{
+                font-size:16px;
+                padding:22px;
+            }
+
+        }
+    </style>
+
+    
+<style>
+        /* =========================
+        FOOTER 5 COLUMN LAYOUT
+        ========================= */
+
+        .footer-content{
+            display:grid;
+            grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;
+            gap:40px;
+        }
+
+        .footer-services-group{
+            margin-bottom:40px;
+        }
+
+        .footer-col h4{
+            font-size:18px;
+            font-weight:700;
+            margin-bottom:18px;
+            color:#ffffff;
+        }
+
+        .footer-col ul{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+
+        .footer-col ul li{
+            margin-bottom:12px;
+        }
+
+        .footer-col ul li a{
+            color:rgba(255,255,255,0.72);
+            text-decoration:none;
+            line-height:1.7;
+            transition:0.3s ease;
+            font-size:15px;
+        }
+
+        .footer-col ul li a:hover{
+            color:#ffffff;
+            padding-left:4px;
+        }
+
+        .footer-contact p{
+            margin-bottom:10px;
+            color:rgba(255,255,255,0.75);
+            line-height:1.8;
+        }
+
+        /* LARGE TABLETS */
+        @media(max-width:1200px){
+
+            .footer-content{
+                grid-template-columns:1fr 1fr 1fr;
+            }
+
+        }
+
+        /* TABLETS */
+        @media(max-width:991px){
+
+            .footer-content{
+                grid-template-columns:1fr 1fr;
+                gap:50px 30px;
+            }
+
+        }
+
+        /* MOBILE */
+        @media(max-width:767px){
+
+            .footer-content{
+                grid-template-columns:1fr;
+            }
+
+            .footer-services-group{
+                margin-bottom:30px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-icon">🌟</span>
+            <span class="announcement-text">New: Launch your digital presence with our 2025 Innovation Suite</span>
+            <a href="#" class="announcement-link">Learn More →</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <span class="logo-icon"><a href="http://shiventech.co.in/"><img src="../assets/images/shiventech-logo.png" width="30%"></a></span>
+                    <!-- <span class="logo-text"><img src="../assets/images/shiventech-logo.png" width="30%"></span> -->
+                </div>
+            </div>
+            
+            <div class="navbar-right">
+                <ul class="nav-links">
+                    <li><a href="http://shiventech.co.in/index.html" class="nav-link active" data-page="home">Home</a></li>
+                    
+                    <li class="nav-item-dropdown">
+                        <a href="#" class="nav-link Services-toggle" data-page="Services">Services</a>
+                        <div class="megamenu">
+                            <div class="megamenu-grid">
+                                <div class="megamenu-col">
+                                    
+                                    <h4>Web Development</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                                        <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                                        <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                                    </ul>
+
+                                    <h4>AI Solutions & Automation</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Integrations</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                                        <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                                    </ul>
+
+                                    <h4>SaaS Product Development</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                                        <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Digital Marketing</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                        <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                        <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                        <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                    </ul>
+
+                                    <h4>MVP Development Services</h4>
+                                    <ul>
+                                        
+                                        <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                                        <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Cloud & DevOps</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                                        <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                                        <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                                    </ul>
+
+                                    <h4>Startup Consulting</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                                        <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                                        <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="http://shiventech.co.in/blogs.html" class="nav-link" data-page="blogs">Blogs</a></li>
+                    <li><a href="http://shiventech.co.in/contact.html" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                
+                <button class="cta-button">Get Started</button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay">
+                <div class="mobile-menu-header">
+                    <div class="logo">
+                        <span class="logo-icon"><a href="http://shiventech.co.in/index.html"><img src="../assets/images/shiventech-logo.png" width="30%"></a></span>
+                        <!-- <span class="logo-text">NeoVista</span> -->
+                    </div>
+                    <button class="close-button">✕</button>
+                </div>
+
+                <ul class="mobile-nav-links">
+                    <li><a href="http://shiventech.co.in/index.html" class="nav-link" data-page="home">Home</a></li>
+                    
+                    <li class="mobile-dropdown">
+                        <div class="mobile-dropdown-header">
+                            <span>Services</span>
+                            <span class="dropdown-arrow">›</span>
+                        </div>
+                        <ul class="mobile-submenu">
+                            <li class="submenu-category">
+                                <span class="category-title">Web Development</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                                    <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                                    <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-category">
+                                <span class="category-title">AI Solutions & Automation</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Digital Marketing</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                    <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Integrations</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                                    <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">SaaS Product Development</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                                    <li><a href="http://shiventech.co.in/services/">Multi-Tenant SaaS Architecture</a></li>
+                                    <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Digital Marketing</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                    <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">MVP Development Services</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                                    <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Cloud & DevOps</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                                    <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                                    <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Startup Consulting</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                                    <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                                    <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="http://shiventech.co.in/blogs.html" class="nav-link" data-page="blogs">Blogs</a></li>
+                    <li><a href="http://shiventech.co.in/contact.html" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+
+                <div class="mobile-cta">
+                    <button class="cta-button">Get Started</button>
+                </div>
+            </div>
+
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-content">
+
+<!-- INCLUDE SAME NAVBAR HERE -->
+
+<!-- <section class="inner-hero">
+    <div class="inner-hero-content">
+        <span class="hero-badge">Progressive Web Apps</span>
+        <h1>App-Like Experiences Directly From The Browser</h1>
+        <p>
+            Deliver fast, engaging and reliable web experiences using modern Progressive Web App technologies.
+        </p>
+    </div>
+</section> -->
+
+<style>
+    /* =========================
+    BLOG PAGE STYLING
+    ========================= */
+
+    .article-body{
+        padding:120px 20px 100px;
+        background:#f8fafc;
+    }
+
+    .container{
+        max-width:900px;
+        margin:auto;
+    }
+
+    /* BLOG SECTION ONLY */
+    .article-body{
+        padding:120px 20px 100px;
+        background:#f8fafc;
+    }
+
+    .article-body .container{
+        max-width:900px;
+        margin:0 auto;
+    }
+
+    /* BLOG HERO */
+    .article-body h1{
+        font-size:56px;
+        line-height:1.15;
+        font-weight:800;
+        color:#0f172a;
+        margin-bottom:25px;
+        letter-spacing:-1px;
+    }
+
+    .article-body > .container > p:first-of-type{
+        font-size:21px;
+        line-height:1.9;
+        color:#475569;
+        margin-bottom:25px;
+    }
+
+    .article-body > .container > p:nth-of-type(2){
+        font-size:18px;
+        color:#64748b;
+        margin-bottom:50px;
+    }
+
+    /* ARTICLE DIVIDER */
+    .article-body hr{
+        border:none;
+        height:1px;
+        background:#e2e8f0;
+        margin:60px 0;
+    }
+
+    /* TREND BLOCKS */
+    .trend-item{
+        background:#ffffff;
+        padding:45px;
+        border-radius:28px;
+        margin-bottom:35px;
+        box-shadow:
+            0 10px 40px rgba(15,23,42,0.05);
+        border:1px solid #edf2f7;
+        transition:0.35s ease;
+    }
+
+    .trend-item:hover{
+        transform:translateY(-6px);
+        box-shadow:
+            0 20px 60px rgba(15,23,42,0.08);
+    }
+
+    .trend-item h2{
+        font-size:34px;
+        line-height:1.3;
+        margin-bottom:22px;
+        color:#0f172a;
+        font-weight:700;
+    }
+
+    .trend-item h3{
+        font-size:22px;
+        margin-top:35px;
+        margin-bottom:18px;
+        color:#111827;
+        font-weight:600;
+    }
+
+    .trend-item p{
+        font-size:18px;
+        line-height:1.9;
+        color:#475569;
+        margin-bottom:18px;
+    }
+
+    /* LISTS */
+    .trend-item ul{
+        padding-left:22px;
+        margin-bottom:20px;
+    }
+
+    .trend-item ul li{
+        font-size:17px;
+        line-height:1.9;
+        color:#475569;
+        margin-bottom:10px;
+        position:relative;
+    }
+
+    /* CONCLUSION */
+    .conclusion{
+        background:linear-gradient(135deg,#0f172a,#111827);
+        padding:60px;
+        border-radius:32px;
+        margin-top:80px;
+        color:#ffffff;
+    }
+
+    .conclusion h2{
+        font-size:40px;
+        margin-bottom:25px;
+        color:#ffffff;
+    }
+
+    .conclusion p{
+        font-size:18px;
+        line-height:1.9;
+        color:rgba(255,255,255,0.85);
+        margin-bottom:20px;
+    }
+
+    .conclusion ul{
+        margin:30px 0;
+        padding-left:22px;
+    }
+
+    .conclusion ul li{
+        font-size:18px;
+        line-height:1.9;
+        margin-bottom:10px;
+        color:rgba(255,255,255,0.9);
+    }
+
+    .blog-meta{
+        display:flex;
+        gap:14px;
+        flex-wrap:wrap;
+        align-items:center;
+        color:#64748b;
+        font-size:15px;
+        margin-bottom:40px;
+    }
+
+    .blog-feature-image{
+        margin-bottom:60px;
+    }
+
+    .blog-feature-image img{
+        width:100%;
+        border-radius:28px;
+        display:block;
+        box-shadow:0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:991px){
+
+        .article-body h1{
+            font-size:46px;
+        }
+
+        .trend-item{
+            padding:35px;
+        }
+
+        .trend-item h2{
+            font-size:30px;
+        }
+
+        .conclusion{
+            padding:45px;
+        }
+
+    }
+
+    @media(max-width:767px){
+
+        .article-body{
+            padding:100px 15px 80px;
+        }
+
+        .article-body h1{
+            font-size:36px;
+        }
+
+        .article-body > .container > p:first-of-type{
+            font-size:18px;
+        }
+
+        .trend-item{
+            padding:28px;
+            border-radius:22px;
+        }
+
+        .trend-item h2{
+            font-size:26px;
+        }
+
+        .trend-item h3{
+            font-size:20px;
+        }
+
+        .trend-item p,
+        .trend-item ul li,
+        .conclusion p,
+        .conclusion ul li{
+            font-size:16px;
+        }
+
+        .conclusion{
+            padding:35px 28px;
+        }
+
+        .conclusion h2{
+            font-size:30px;
+        }
+
+    }
+</style>
+<style>
+    /* =========================
+    BLOG FAQ SECTION
+    ========================= */
+
+    .blog-faq-section{
+        margin-top:90px;
+    }
+
+    .blog-faq-section h2{
+        font-size:42px;
+        margin-bottom:40px;
+        color:#0f172a;
+        line-height:1.3;
+    }
+
+    .blog-faq-item{
+        background:#ffffff;
+        border:1px solid #e2e8f0;
+        border-radius:24px;
+        padding:30px 35px;
+        margin-bottom:22px;
+        transition:0.3s ease;
+        box-shadow:0 10px 30px rgba(15,23,42,0.04);
+    }
+
+    .blog-faq-item:hover{
+        transform:translateY(-4px);
+        box-shadow:0 18px 40px rgba(15,23,42,0.08);
+    }
+
+    .blog-faq-item h3{
+        font-size:22px;
+        line-height:1.5;
+        margin-bottom:15px;
+        color:#111827;
+    }
+
+    .blog-faq-item p{
+        font-size:17px;
+        line-height:1.9;
+        color:#475569;
+    }
+
+    /* MOBILE */
+    @media(max-width:767px){
+
+        .blog-faq-section{
+            margin-top:70px;
+        }
+
+        .blog-faq-section h2{
+            font-size:30px;
+        }
+
+        .blog-faq-item{
+            padding:24px;
+            border-radius:20px;
+        }
+
+        .blog-faq-item h3{
+            font-size:19px;
+        }
+
+        .blog-faq-item p{
+            font-size:16px;
+        }
+
+    }
+</style>
+
+
+<section class="article-body">
+
+    <div class="container">
+
+        <div class="blog-meta">
+            <span>Home</span>
+            <span>></span>
+            <span>Blogs</span>
+            <span>></span>
+            <span>Social Media Marketing Strategies</span>
+        </div>
+
+        <h1>Social Media Marketing Strategies</h1>
+
+        <div class="blog-meta">
+            <span>📅 12 May 2026</span>
+            <span>•</span>
+            <span>Digital Marketing</span>
+            <span>•</span>
+            <span>7 min read</span>
+        </div>
+
+        <div class="blog-feature-image">
+            <img src="../assets/images/blogs/social-media-marketing-strategies.jpg" alt="Top Web Development Trends in 2026">
+        </div>
+        
+        <p>
+            Social media marketing has become one of the most powerful ways for businesses
+            to connect with their audience, build brand awareness, generate leads,
+            and increase revenue. In 2026, successful brands are focusing on authentic
+            engagement, short-form content, AI-driven personalization, and data-backed strategies
+            to stand out in the highly competitive digital landscape.
+        </p>
+
+        <p>
+            Here are the top social media marketing strategies businesses should adopt in 2026.
+        </p>
+
+        <hr />
+
+        <div class="trend-item">
+
+            <h2>1. Create Short-Form Video Content</h2>
+
+            <p>
+                Short-form videos continue to dominate social media platforms because
+                they capture attention quickly and drive higher engagement rates.
+            </p>
+
+            <h3>Popular Content Formats</h3>
+
+            <ul>
+                <li>Instagram Reels</li>
+                <li>YouTube Shorts</li>
+                <li>TikTok-style videos</li>
+                <li>Behind-the-scenes content</li>
+                <li>Quick tutorials and tips</li>
+                <li>Product demonstrations</li>
+            </ul>
+
+            <p>
+                Businesses using engaging video content can improve visibility,
+                audience retention, and conversion rates significantly.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>2. Focus on Community Building</h2>
+
+            <p>
+                Brands are shifting from simply posting content to building active
+                communities around their products and services.
+            </p>
+
+            <h3>Effective Community Strategies</h3>
+
+            <ul>
+                <li>Responding to comments and messages</li>
+                <li>Creating interactive polls and Q&A sessions</li>
+                <li>Running private groups and communities</li>
+                <li>Encouraging user-generated content</li>
+                <li>Hosting live sessions and webinars</li>
+            </ul>
+
+            <p>
+                Strong online communities improve customer loyalty and increase
+                long-term brand trust.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>3. Use AI-Powered Content Personalization</h2>
+
+            <p>
+                AI tools are helping marketers deliver highly personalized
+                experiences based on audience interests and behavior.
+            </p>
+
+            <h3>Benefits of AI in Social Media Marketing</h3>
+
+            <ul>
+                <li>Personalized content recommendations</li>
+                <li>Automated audience targeting</li>
+                <li>AI-generated captions and creatives</li>
+                <li>Performance prediction</li>
+                <li>Smart scheduling and automation</li>
+            </ul>
+
+            <p>
+                Personalized campaigns help improve engagement, click-through rates,
+                and customer satisfaction.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>4. Collaborate with Influencers</h2>
+
+            <p>
+                Influencer marketing continues to be a highly effective strategy
+                for increasing reach and credibility.
+            </p>
+
+            <h3>Why Influencer Marketing Works</h3>
+
+            <ul>
+                <li>Builds trust with niche audiences</li>
+                <li>Improves brand awareness</li>
+                <li>Increases engagement rates</li>
+                <li>Generates authentic content</li>
+                <li>Boosts product visibility</li>
+            </ul>
+
+            <p>
+                Micro-influencers are especially valuable because they often
+                have stronger engagement and highly targeted audiences.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>5. Optimize Content for Each Platform</h2>
+
+            <p>
+                Every social media platform has different audience behaviors
+                and content preferences.
+            </p>
+
+            <h3>Platform-Specific Strategies</h3>
+
+            <ul>
+                <li>LinkedIn for professional content and B2B marketing</li>
+                <li>Instagram for visual storytelling and branding</li>
+                <li>Facebook for community engagement</li>
+                <li>YouTube for long-form educational content</li>
+                <li>X (Twitter) for real-time conversations and updates</li>
+            </ul>
+
+            <p>
+                Tailoring content to each platform improves engagement
+                and campaign performance.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>6. Invest in Paid Social Advertising</h2>
+
+            <p>
+                Organic reach is becoming increasingly competitive, making
+                paid advertising an important part of social media marketing.
+            </p>
+
+            <h3>Effective Ad Strategies</h3>
+
+            <ul>
+                <li>Retargeting website visitors</li>
+                <li>Lookalike audience campaigns</li>
+                <li>Lead generation ads</li>
+                <li>Video advertising</li>
+                <li>Carousel and interactive ads</li>
+            </ul>
+
+            <p>
+                Paid campaigns help businesses reach highly targeted audiences
+                and scale faster.
+            </p>
+
+        </div>
+
+        <div class="trend-item">
+
+            <h2>7. Track Analytics and Performance</h2>
+
+            <p>
+                Data-driven marketing strategies help brands understand
+                what content performs best and where improvements are needed.
+            </p>
+
+            <h3>Important Metrics to Monitor</h3>
+
+            <ul>
+                <li>Engagement rate</li>
+                <li>Reach and impressions</li>
+                <li>Click-through rate (CTR)</li>
+                <li>Follower growth</li>
+                <li>Conversion rate</li>
+                <li>Audience demographics</li>
+            </ul>
+
+            <p>
+                Continuous performance tracking allows businesses to optimize
+                campaigns for better results.
+            </p>
+
+        </div>
+
+        <hr />
+
+        <div class="conclusion">
+
+            <h2>Final Thoughts</h2>
+
+            <p>
+                Social media marketing in 2026 is focused on building meaningful
+                engagement, creating personalized experiences, and delivering
+                high-quality content across multiple platforms.
+            </p>
+
+            <ul>
+                <li>Short-form video content</li>
+                <li>Community-driven engagement</li>
+                <li>AI-powered personalization</li>
+                <li>Influencer collaborations</li>
+                <li>Data-driven marketing decisions</li>
+            </ul>
+
+            <p>
+                Businesses that adapt to changing social media trends can improve
+                customer relationships, strengthen brand identity, and achieve
+                long-term digital growth.
+            </p>
+
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div class="blog-faq-section">
+
+            <h2>FAQs: Social Media Marketing Strategies</h2>
+
+            <div class="blog-faq-item">
+
+                <h3>1. What is the best social media marketing strategy?</h3>
+
+                <p>
+                    The best strategy depends on your business goals, but a combination
+                    of quality content, audience engagement, short-form videos,
+                    and targeted advertising delivers the best results.
+                </p>
+
+            </div>
+
+            <div class="blog-faq-item">
+
+                <h3>2. Why is social media marketing important?</h3>
+
+                <p>
+                    Social media marketing helps businesses build brand awareness,
+                    engage with customers, generate leads, and increase sales
+                    through online platforms.
+                </p>
+
+            </div>
+
+            <div class="blog-faq-item">
+
+                <h3>3. Which platform is best for social media marketing?</h3>
+
+                <p>
+                    The ideal platform depends on your audience and industry.
+                    Instagram and TikTok work well for visual brands,
+                    LinkedIn is effective for B2B businesses,
+                    and Facebook remains strong for community engagement.
+                </p>
+
+            </div>
+
+            <div class="blog-faq-item">
+
+                <h3>4. Is social media marketing good for small businesses?</h3>
+
+                <p>
+                    Yes, social media marketing is highly effective for small businesses
+                    because it provides affordable ways to reach customers,
+                    build trust, and compete with larger brands online.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INCLUDE SAME FOOTER HERE -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <!-- COLUMN 1 -->
+            <div class="footer-col footer-col-1">
+
+                <div class="footer-logo">
+                    <span class="logo-icon">
+                        <img src="../assets/images/shiventech-logo-w.png" width="60%">
+                    </span>
+                </div>
+
+                <p class="footer-desc">
+                    Transforming ideas into innovative digital solutions that drive
+                    business growth and create lasting impact.
+                </p>
+
+                <div class="footer-contact">
+                    <p><strong>Call:</strong> +91 90393 03301</p>
+                    <p><strong>Email:</strong> connect@shiventech.co.in</p>
+                </div>
+
+            </div>
+
+            <!-- COLUMN 2 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+                    <h4>Web Development</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                        <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                        <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                        <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>AI Solutions & Automation</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 3 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Integrations</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                        <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>SaaS Product Development</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                        <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 4 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Digital Marketing</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                        <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                        <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                        <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>MVP Development Services</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                        <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 5 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Cloud & DevOps</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                        <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                        <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                        <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>Startup Consulting</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                        <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                        <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <div class="footer-bottom-left">
+                <p>
+                    &copy; 2026 Shiventech Solutions (P) Ltd.
+                    All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer-bottom-center">
+
+                <ul class="footer-links">
+                    <li><a href="http://shiventech.co.in/terms-of-service.html">Terms of Service</a></li>
+<li><a href="http://shiventech.co.in/privacy-policy.html">Privacy Policy</a></li>
+<li><a href="http://shiventech.co.in/cookie-policy.html">Cookie Policy</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-bottom-right">
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook">f</a>
+                    <a href="#" class="social-icon" title="Twitter">𝕏</a>
+                    <a href="#" class="social-icon" title="LinkedIn">in</a>
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // FAQ ACCORDION
+        $('.faq-question').click(function(){
+
+            let parent = $(this).parent();
+
+            if(parent.hasClass('active')){
+
+                parent.removeClass('active');
+                parent.find('.faq-answer').slideUp();
+                parent.find('.faq-icon').text('+');
+
+            }else{
+
+                $('.faq-item').removeClass('active');
+                $('.faq-answer').slideUp();
+                $('.faq-icon').text('+');
+
+                parent.addClass('active');
+                parent.find('.faq-answer').slideDown();
+                parent.find('.faq-icon').text('−');
+
+            }
+
+        });
+    </script>
+</body>
+</html>

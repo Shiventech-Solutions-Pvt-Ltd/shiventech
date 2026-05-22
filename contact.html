@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiventech - Digital Solutions & Innovation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Sora:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-connect-options{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+            margin-top:40px;
+        }
+
+        .contact-option{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            padding:28px;
+            border-radius:24px;
+            background:#ffffff;
+            text-decoration:none;
+            border:1px solid #e2e8f0;
+            box-shadow:0 10px 30px rgba(15,23,42,0.05);
+            transition:0.35s ease;
+        }
+
+        .contact-option:hover{
+            transform:translateY(-6px);
+            box-shadow:0 20px 50px rgba(15,23,42,0.08);
+        }
+
+        .contact-option-icon{
+            width:64px;
+            height:64px;
+            border-radius:18px;
+            background:linear-gradient(135deg,#1e1b4b,#06b6d4);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:28px;
+            color:#ffffff;
+            flex-shrink:0;
+        }
+
+        .contact-option-content{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .contact-label{
+            font-size:15px;
+            font-weight:600;
+            color:#64748b;
+            margin-bottom:6px;
+        }
+
+        .contact-value{
+            font-size:20px;
+            font-weight:700;
+            color:#0f172a;
+            line-height:1.4;
+        }
+
+        @media(max-width:991px){
+
+            .contact-connect-options{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+        @media(max-width:767px){
+
+            .contact-option{
+                padding:22px;
+                border-radius:20px;
+            }
+
+            .contact-option-icon{
+                width:56px;
+                height:56px;
+                font-size:24px;
+            }
+
+            .contact-value{
+                font-size:18px;
+            }
+
+        }
+    </style>
+    <style>
+        /* =========================
+        FOOTER 5 COLUMN LAYOUT
+        ========================= */
+
+        .footer-content{
+            display:grid;
+            grid-template-columns:1.3fr 1fr 1fr 1fr 1fr;
+            gap:40px;
+        }
+
+        .footer-services-group{
+            margin-bottom:40px;
+        }
+
+        .footer-col h4{
+            font-size:18px;
+            font-weight:700;
+            margin-bottom:18px;
+            color:#ffffff;
+        }
+
+        .footer-col ul{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+
+        .footer-col ul li{
+            margin-bottom:12px;
+        }
+
+        .footer-col ul li a{
+            color:rgba(255,255,255,0.72);
+            text-decoration:none;
+            line-height:1.7;
+            transition:0.3s ease;
+            font-size:15px;
+        }
+
+        .footer-col ul li a:hover{
+            color:#ffffff;
+            padding-left:4px;
+        }
+
+        .footer-contact p{
+            margin-bottom:10px;
+            color:rgba(255,255,255,0.75);
+            line-height:1.8;
+        }
+
+        /* LARGE TABLETS */
+        @media(max-width:1200px){
+
+            .footer-content{
+                grid-template-columns:1fr 1fr 1fr;
+            }
+
+        }
+
+        /* TABLETS */
+        @media(max-width:991px){
+
+            .footer-content{
+                grid-template-columns:1fr 1fr;
+                gap:50px 30px;
+            }
+
+        }
+
+        /* MOBILE */
+        @media(max-width:767px){
+
+            .footer-content{
+                grid-template-columns:1fr;
+            }
+
+            .footer-services-group{
+                margin-bottom:30px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-icon">🌟</span>
+            <span class="announcement-text">New: Launch your digital presence with our 2025 Innovation Suite</span>
+            <a href="#" class="announcement-link">Learn More →</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <span class="logo-icon"><a href="http://shiventech.co.in/"><img src="assets/images/shiventech-logo.png" width="30%"></a></span>
+                    <!-- <span class="logo-text"><img src="assets/images/shiventech-logo.png" width="30%"></span> -->
+                </div>
+            </div>
+            
+            <div class="navbar-right">
+                <ul class="nav-links">
+                    <li><a href="http://shiventech.co.in/index.html" class="nav-link active" data-page="home">Home</a></li>
+                    
+                    <li class="nav-item-dropdown">
+                        <a href="#" class="nav-link Services-toggle" data-page="Services">Services</a>
+                        <div class="megamenu">
+                            <div class="megamenu-grid">
+                                <div class="megamenu-col">
+                                    
+                                    <h4>Web Development</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                                        <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                                        <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                                    </ul>
+
+                                    <h4>AI Solutions & Automation</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Integrations</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                                        <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                                        <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                                    </ul>
+
+                                    <h4>SaaS Product Development</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                                        <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Digital Marketing</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                        <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                        <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                        <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                    </ul>
+
+                                    <h4>MVP Development Services</h4>
+                                    <ul>
+                                        
+                                        <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                                        <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                                        <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="megamenu-col">
+                                    <h4>Cloud & DevOps</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                                        <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                                        <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                                        <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                                    </ul>
+
+                                    <h4>Startup Consulting</h4>
+                                    <ul>
+                                        <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                                        <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                                        <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                                        <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="http://shiventech.co.in/blogs.html" class="nav-link" data-page="blogs">Blogs</a></li>
+                    <li><a href="http://shiventech.co.in/contact.html" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                
+                <button class="cta-button">Get Started</button>
+            </div>
+
+            <!-- Mobile Menu Overlay -->
+            <div class="mobile-menu-overlay">
+                <div class="mobile-menu-header">
+                    <div class="logo">
+                        <span class="logo-icon"><a href="http://shiventech.co.in/index.html"><img src="assets/images/shiventech-logo.png" width="30%"></a></span>
+                        <!-- <span class="logo-text">NeoVista</span> -->
+                    </div>
+                    <button class="close-button">✕</button>
+                </div>
+
+                <ul class="mobile-nav-links">
+                    <li><a href="http://shiventech.co.in/index.html" class="nav-link" data-page="home">Home</a></li>
+                    
+                    <li class="mobile-dropdown">
+                        <div class="mobile-dropdown-header">
+                            <span>Services</span>
+                            <span class="dropdown-arrow">›</span>
+                        </div>
+                        <ul class="mobile-submenu">
+                            <li class="submenu-category">
+                                <span class="category-title">Web Development</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                                    <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                                    <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-category">
+                                <span class="category-title">AI Solutions & Automation</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Digital Marketing</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                    <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Integrations</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                                    <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                                    <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">SaaS Product Development</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                                    <li><a href="http://shiventech.co.in/services/">Multi-Tenant SaaS Architecture</a></li>
+                                    <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Digital Marketing</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                                    <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">MVP Development Services</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                                    <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                                    <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Cloud & DevOps</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                                    <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                                    <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                                    <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="submenu-category">
+                                <span class="category-title">Startup Consulting</span>
+                                <ul>
+                                    <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                                    <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                                    <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                                    <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="http://shiventech.co.in/blogs.html" class="nav-link" data-page="blogs">Blogs</a></li>
+                    <li><a href="http://shiventech.co.in/contact.html" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+
+                <div class="mobile-cta">
+                    <button class="cta-button">Get Started</button>
+                </div>
+            </div>
+
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-content">
+<!-- INCLUDE SAME NAVBAR HERE -->
+
+<section class="inner-hero">
+    <div class="inner-hero-content">
+        <span class="hero-badge">Get In Touch</span>
+
+        <h1>Let's Build Something Amazing Together</h1>
+
+        <p>
+            We’d love to hear about your project and discuss how we can help.
+        </p>
+    </div>
+</section>
+
+<div class="contact-connect-options">
+
+    <a href="tel:+919039303301" class="contact-option">
+        <div class="contact-option-icon">📞</div>
+        <div class="contact-option-content">
+            <span class="contact-label">Call</span>
+            <span class="contact-value">+91 90393 03301</span>
+        </div>
+    </a>
+
+    <a href="https://wa.me/919039303301?text=Hi,%20I%20want%20to%20connect%20to%20discuss%20my%20project."
+       target="_blank"
+       class="contact-option">
+        <div class="contact-option-icon">💬</div>
+        <div class="contact-option-content">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">Chat with us</span>
+        </div>
+    </a>
+
+    <a href="mailto:connect@shiventech.co.in" class="contact-option">
+        <div class="contact-option-icon">✉️</div>
+        <div class="contact-option-content">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">connect@shiventech.co.in</span>
+        </div>
+    </a>
+
+</div>
+
+<!-- INCLUDE SAME FOOTER HERE -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <!-- COLUMN 1 -->
+            <div class="footer-col footer-col-1">
+
+                <div class="footer-logo">
+                    <span class="logo-icon">
+                        <img src="../assets/images/shiventech-logo-w.png" width="60%">
+                    </span>
+                </div>
+
+                <p class="footer-desc">
+                    Transforming ideas into innovative digital solutions that drive
+                    business growth and create lasting impact.
+                </p>
+
+                <div class="footer-contact">
+                    <p><strong>Call:</strong> +91 90393 03301</p>
+                    <p><strong>Email:</strong> connect@shiventech.co.in</p>
+                </div>
+
+            </div>
+
+            <!-- COLUMN 2 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+                    <h4>Web Development</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/custom-web-apps.html">Custom Web Apps</a></li>
+                        <li><a href="http://shiventech.co.in/services/ecommerce-solutions.html">E-Commerce Solutions</a></li>
+                        <li><a href="http://shiventech.co.in/services/progressive-web-apps.html">Progressive Web Apps</a></li>
+                        <li><a href="http://shiventech.co.in/services/api-development.html">API Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>AI Solutions & Automation</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/ai-chatbot-development.html">AI Chatbot Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/gpt-openai-integrations.html">GPT/OpenAI Integrations</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-workflow-automation.html">AI Workflow Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-customer-support.html">AI Customer Support</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-content-generation.html">AI Content Generation</a></li>
+                        <li><a href="http://shiventech.co.in/services/ai-agents.html">AI Agents</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 3 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Integrations</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/crm-integrations.html">CRM Integrations</a></li>
+                        <li><a href="http://shiventech.co.in/services/whatsapp-automation.html">WhatsApp Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/email-automation.html">Email Automation</a></li>
+                        <li><a href="http://shiventech.co.in/services/erp-integrations.html">ERP Integrations</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>SaaS Product Development</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/saas-mvp-development.html">SaaS MVP Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/subscription-platforms.html">Subscription Platforms</a></li>
+                        <li><a href="http://shiventech.co.in/services/dashboard-development.html">Dashboard Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/admin-panel-systems.html">Admin Panel Systems</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 4 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Digital Marketing</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/seo-optimization.html">SEO Optimization</a></li>
+                        <li><a href="http://shiventech.co.in/services/content-marketing.html">Content Marketing</a></li>
+                        <li><a href="http://shiventech.co.in/services/social-media-marketing.html">Social Media</a></li>
+                        <li><a href="http://shiventech.co.in/services/analytics-and-insights.html">Analytics & Insights</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>MVP Development Services</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/startup-mvp-development.html">Startup MVP Development</a></li>
+                        <li><a href="http://shiventech.co.in/services/rapid-prototyping.html">Rapid Prototyping</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-architecture.html">Product Architecture</a></li>
+                        <li><a href="http://shiventech.co.in/services/technical-consulting.html">Technical Consulting</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-discovery-workshops.html">Product Discovery Workshops</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- COLUMN 5 -->
+            <div class="footer-col">
+
+                <div class="footer-services-group">
+
+                    <h4>Cloud & DevOps</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/cloud-migration.html">Cloud Migration</a></li>
+                        <li><a href="http://shiventech.co.in/services/infrastructure-setup.html">Infrastructure Setup</a></li>
+                        <li><a href="http://shiventech.co.in/services/ci-cd-pipelines.html">CI/CD Pipeline</a></li>
+                        <li><a href="http://shiventech.co.in/services/security-and-monitoring.html">Security & Monitoring</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="footer-services-group">
+
+                    <h4>Startup Consulting</h4>
+
+                    <ul>
+                        <li><a href="http://shiventech.co.in/services/cto-as-a-service.html">CTO-as-a-Service</a></li>
+                        <li><a href="http://shiventech.co.in/services/product-planning.html">Product Planning</a></li>
+                        <li><a href="http://shiventech.co.in/services/infrastructure-consulting.html">Infrastructure Consulting</a></li>
+                        <li><a href="http://shiventech.co.in/services/vendor-selection.html">Vendor Selection</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <div class="footer-bottom-left">
+                <p>
+                    &copy; 2026 Shiventech Solutions (P) Ltd.
+                    All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer-bottom-center">
+
+                <ul class="footer-links">
+                    <li><a href="http://shiventech.co.in/terms-of-service.html">Terms of Service</a></li>
+<li><a href="http://shiventech.co.in/privacy-policy.html">Privacy Policy</a></li>
+<li><a href="http://shiventech.co.in/cookie-policy.html">Cookie Policy</a></li>
+                </ul>
+
+            </div>
+
+            <div class="footer-bottom-right">
+
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook">f</a>
+                    <a href="#" class="social-icon" title="Twitter">𝕏</a>
+                    <a href="#" class="social-icon" title="LinkedIn">in</a>
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
