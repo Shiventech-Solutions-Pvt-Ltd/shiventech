@@ -475,7 +475,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ==================== UTILITY FUNCTIONS ==================== 
-console.log('✨ NeoVista website loaded successfully');
+console.log('✨ Shiventech website loaded successfully');
 console.log('🎨 Modern design with smooth animations');
 console.log('📱 Fully responsive across all devices');
 console.log('⚡ Fast and optimized performance');

@@ -1597,7 +1597,7 @@ body {
 /* Other pages */
 
 .inner-hero{
-    padding:120px 20px 80px;
+    padding:55px 20px 55px; /*120px 20px 80px;*/
     background:linear-gradient(135deg,#0f172a,#0f766e);
     color:#fff;
     text-align:center;
@@ -1679,4 +1679,8 @@ body {
         font-size:40px;
     }
 
+}
+
+.close-button{
+    display:none;
 }
