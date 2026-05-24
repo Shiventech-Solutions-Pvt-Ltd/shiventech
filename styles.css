@@ -397,7 +397,7 @@ body {
 .mobile-submenu {
     list-style: none;
     max-height: 0;
-    overflow: hidden;
+    overflow: scroll;
     transition: max-height 0.3s ease;
     background: var(--color-slate-light);
 }
@@ -1435,7 +1435,7 @@ body {
 
 @media (max-width: 768px) {
     .announcement-bar {
-        display: none;
+        display: block;
     }
 
     .navbar-right {
