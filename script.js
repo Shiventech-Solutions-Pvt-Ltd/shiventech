@@ -479,3 +479,230 @@ console.log('✨ Shiventech website loaded successfully');
 console.log('🎨 Modern design with smooth animations');
 console.log('📱 Fully responsive across all devices');
 console.log('⚡ Fast and optimized performance');
+
+/* ============================================================
+   HERO CAROUSEL — smooth right-to-left, 2 min auto-advance
+   ============================================================ */
+(function() {
+    const track       = document.getElementById('heroCarouselTrack');
+    const dots        = document.querySelectorAll('#heroCarouselDots .carousel-dot');
+    const prevBtn     = document.getElementById('heroPrev');
+    const nextBtn     = document.getElementById('heroNext');
+    const progressFill = document.getElementById('heroProgressFill');
+
+    if (!track) return;
+
+    const slides     = track.querySelectorAll('.hero-slide');
+    const total      = slides.length;
+    let current      = 0;
+    let autoTimer    = null;
+    let progressTimer = null;
+    const INTERVAL   = 120000; // 2 minutes in ms
+    const TICK       = 100;    // progress bar update every 100ms
+
+    let elapsed = 0;
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        // Re-trigger content animation
+        slides.forEach((s, i) => {
+            const content = s.querySelector('.hero-slide-content');
+            if (i === current && content) {
+                content.style.animation = 'none';
+                void content.offsetWidth;
+                content.style.animation = 'slideContentIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both';
+            }
+        });
+        resetProgress();
+    }
+
+    function resetProgress() {
+        elapsed = 0;
+        if (progressFill) progressFill.style.width = '0%';
+    }
+
+    function startAuto() {
+        clearInterval(autoTimer);
+        clearInterval(progressTimer);
+        resetProgress();
+
+        progressTimer = setInterval(function() {
+            elapsed += TICK;
+            const pct = Math.min((elapsed / INTERVAL) * 100, 100);
+            if (progressFill) progressFill.style.width = pct + '%';
+        }, TICK);
+
+        autoTimer = setInterval(function() {
+            goTo(current + 1);
+        }, INTERVAL);
+    }
+
+    function stopAuto() {
+        clearInterval(autoTimer);
+        clearInterval(progressTimer);
+    }
+
+    // Arrow clicks
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); stopAuto(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); stopAuto(); startAuto(); });
+
+    // Dot clicks
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            goTo(parseInt(this.getAttribute('data-index')));
+            stopAuto();
+            startAuto();
+        });
+    });
+
+    // Pause on hover
+    const carousel = document.querySelector('.hero-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAuto);
+        carousel.addEventListener('mouseleave', startAuto);
+    }
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    if (carousel) {
+        carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+        carousel.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                goTo(current + (diff > 0 ? 1 : -1));
+                stopAuto();
+                startAuto();
+            }
+        }, { passive: true });
+    }
+
+    // Init
+    goTo(0);
+    startAuto();
+})();
+
+
+/* ============================================================
+   REVIEWS CAROUSEL — 2 cards visible, right-to-left sliding
+   ============================================================ */
+(function() {
+    var track    = document.getElementById('reviewsTrack');
+    var dotsWrap = document.getElementById('revDots');
+    var prevBtn  = document.getElementById('revPrev');
+    var nextBtn  = document.getElementById('revNext');
+
+    if (!track) return;
+
+    var GAP      = 28;       // must match CSS gap on .reviews-track
+    var cards    = Array.prototype.slice.call(track.querySelectorAll('.review-card'));
+    var total    = cards.length;
+    var current  = 0;
+    var perView  = 2;        // recalculated on resize
+    var autoTimer = null;
+
+    /* ---------- measure & size cards ---------- */
+    function getPerView() {
+        return window.innerWidth <= 768 ? 1 : 2;
+    }
+
+    function sizeCards() {
+        var viewport = track.parentElement; // .reviews-carousel-viewport
+        var vpW      = viewport.offsetWidth;
+        perView      = getPerView();
+        var cardW    = perView === 1
+            ? vpW
+            : Math.floor((vpW - GAP) / 2);
+        cards.forEach(function(c) { c.style.width = cardW + 'px'; });
+    }
+
+    /* ---------- max step index ---------- */
+    function maxIndex() {
+        return Math.max(0, total - perView);
+    }
+
+    /* ---------- build / rebuild dots ---------- */
+    function buildDots() {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = '';
+        var steps = maxIndex() + 1;
+        for (var i = 0; i < steps; i++) {
+            (function(idx) {
+                var btn = document.createElement('button');
+                btn.className = 'rev-dot' + (idx === 0 ? ' active' : '');
+                btn.setAttribute('aria-label', 'Review group ' + (idx + 1));
+                btn.addEventListener('click', function() { goTo(idx); stopAuto(); startAuto(); });
+                dotsWrap.appendChild(btn);
+            })(i);
+        }
+    }
+
+    /* ---------- navigate ---------- */
+    function goTo(index) {
+        current = Math.max(0, Math.min(index, maxIndex()));
+
+        var vpW    = track.parentElement.offsetWidth;
+        var cardW  = perView === 1 ? vpW : Math.floor((vpW - GAP) / 2);
+        var offset = current * (cardW + GAP);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+
+        // update dots
+        if (dotsWrap) {
+            var dots = dotsWrap.querySelectorAll('.rev-dot');
+            dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+        }
+
+        // update arrow disabled state
+        if (prevBtn) prevBtn.disabled = (current === 0);
+        if (nextBtn) nextBtn.disabled = (current >= maxIndex());
+    }
+
+    /* ---------- auto-advance ---------- */
+    function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(function() {
+            goTo(current >= maxIndex() ? 0 : current + 1);
+        }, 5500);
+    }
+    function stopAuto() { clearInterval(autoTimer); }
+
+    /* ---------- arrow clicks ---------- */
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); stopAuto(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); stopAuto(); startAuto(); });
+
+    /* ---------- touch / swipe ---------- */
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 45) {
+            goTo(current + (diff > 0 ? 1 : -1));
+            stopAuto(); startAuto();
+        }
+    }, { passive: true });
+
+    /* ---------- resize ---------- */
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            var newPer = getPerView();
+            if (newPer !== perView) {
+                current = 0;
+                perView = newPer;
+                buildDots();
+            }
+            sizeCards();
+            goTo(current);
+        }, 120);
+    });
+
+    /* ---------- init ---------- */
+    sizeCards();
+    buildDots();
+    goTo(0);
+    startAuto();
+})();
