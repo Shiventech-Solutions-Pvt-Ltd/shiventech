@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StaffSutra – Empowering People. Ensuring Compliance.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sora: ['Sora', 'sans-serif'],
+            dm: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            navy: '#0f172a',
+            deep: '#0d3358',
+            teal: { DEFAULT: '#0d9488', light: '#14b8a6', dim: '#0f766e' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #0f172a; color: #fff; overflow-x: hidden; }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: #0d9488; border-radius: 10px; }
+
+    /* grid bg */
+    .hero-grid-bg {
+      background-image: linear-gradient(rgba(13,148,136,.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(13,148,136,.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    }
+
+    /* glow blob */
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* gradient text */
+    .grad-text {
+      background: linear-gradient(135deg, #ffffff 25%, #14b8a6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* nav blur */
+    .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    /* card hover border glow */
+    .card-glow:hover { box-shadow: 0 0 0 1px rgba(13,148,136,.4), 0 8px 32px rgba(13,148,136,.1); }
+
+    /* feature top line */
+    .feature-top::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #0d9488, transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .feature-top:hover::before { opacity: 1; }
+
+    /* fade-up animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-1 { animation: fadeUp .7s .05s both; }
+    .anim-2 { animation: fadeUp .7s .15s both; }
+    .anim-3 { animation: fadeUp .7s .25s both; }
+    .anim-4 { animation: fadeUp .7s .35s both; }
+    .anim-5 { animation: fadeUp .7s .45s both; }
+
+    /* pulse dot */
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+    .pulse-dot { animation: pulse-dot 2s infinite; }
+
+    /* scroll-reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* comp bar */
+    .comp-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+    .comp-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #0d9488, #14b8a6); }
+
+    /* step connector */
+    .step-line::after {
+      content: '';
+      position: absolute;
+      top: 28px; left: 56%; right: -40%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(13,148,136,.5), transparent);
+    }
+
+    /* pricing badge pulse */
+    @keyframes badge-glow { 0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.4)} 50%{box-shadow:0 0 0 6px rgba(13,148,136,0)} }
+    .badge-pulse { animation: badge-glow 2.5s infinite; }
+
+    /* mobile nav */
+    #mobile-menu { transition: all .3s ease; }
+
+    /* smooth section dividers */
+    .section-divider {
+      border: none;
+      border-top: .5px solid rgba(255,255,255,.07);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════════════════ -->
+<nav id="navbar" class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-white/[.06] transition-all duration-300"
+     style="background: rgba(15,23,42,.88)">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
+
+    <!-- Logo -->
+    <a href="https://shiventech.co.in/staffsutra.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+           style="background: linear-gradient(135deg,#0d9488,#0369a1)">
+        <i class="fas fa-shield-halved text-white text-sm"></i>
+      </div>
+      <span class="font-sora font-bold text-lg text-white tracking-tight">
+        Staff<span class="text-teal-light">Sutra</span>
+      </span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#features"      class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
+      <a href="#how-it-works"  class="text-sm text-slate-400 hover:text-white transition-colors">How it works</a>
+      <a href="#compliance"    class="text-sm text-slate-400 hover:text-white transition-colors">Compliance</a>
+      <a href="#pricing"       class="text-sm text-slate-400 hover:text-white transition-colors">Pricing</a>
+      <a href="#testimonials"  class="text-sm text-slate-400 hover:text-white transition-colors">Customers</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#" class="text-sm text-slate-300 hover:text-white px-4 py-2 rounded-lg border border-white/[.12] hover:bg-white/[.05] transition-all">Sign in</a>
+      <a href="#" class="text-sm font-medium px-4 py-2 rounded-lg text-white transition-all hover:-translate-y-px"
+         style="background: linear-gradient(135deg,#0d9488,#0369a1)">
+        Start free trial
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5" onclick="toggleMenu()">
+      <span class="w-5 h-px bg-slate-400 transition-all" id="bar1"></span>
+      <span class="w-5 h-px bg-slate-400 transition-all" id="bar2"></span>
+      <span class="w-3.5 h-px bg-slate-400 transition-all" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-white/[.06]"
+       style="background: rgba(13,19,36,.97)">
+    <div class="px-5 py-4 flex flex-col gap-1">
+      <a href="#features"     onclick="closeMenu()" class="text-sm text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[.05] transition-all">Features</a>
+      <a href="#how-it-works" onclick="closeMenu()" class="text-sm text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[.05] transition-all">How it works</a>
+      <a href="#compliance"   onclick="closeMenu()" class="text-sm text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[.05] transition-all">Compliance</a>
+      <a href="#pricing"      onclick="closeMenu()" class="text-sm text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[.05] transition-all">Pricing</a>
+      <a href="#testimonials" onclick="closeMenu()" class="text-sm text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/[.05] transition-all">Customers</a>
+      <div class="pt-3 mt-2 border-t border-white/[.07] flex flex-col gap-2">
+        <a href="#" class="text-sm text-center py-2.5 rounded-lg border border-white/[.12] text-slate-300 hover:bg-white/[.05] transition-all">Sign in</a>
+        <a href="#" class="text-sm font-medium text-center py-2.5 rounded-lg text-white"
+           style="background: linear-gradient(135deg,#0d9488,#0369a1)">Start free trial</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex flex-col items-center justify-center px-5 pt-24 pb-20 text-center overflow-hidden">
+
+  <!-- Background layers -->
+  <div class="absolute inset-0 hero-grid-bg"></div>
+  <div class="glow-blob w-[700px] h-[700px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+       style="background: radial-gradient(circle, rgba(13,148,136,.13) 0%, transparent 70%)"></div>
+  <div class="glow-blob w-96 h-96 top-10 -left-20 opacity-30"
+       style="background: radial-gradient(circle, rgba(3,105,161,.18) 0%, transparent 70%)"></div>
+  <div class="glow-blob w-80 h-80 bottom-20 -right-20 opacity-20"
+       style="background: radial-gradient(circle, rgba(13,148,136,.2) 0%, transparent 70%)"></div>
+
+  <!-- Badge -->
+  <div class="anim-1 relative z-10 inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-medium text-teal-light mb-8"
+       style="border-color: rgba(13,148,136,.35); background: rgba(13,148,136,.08)">
+    <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-teal-light"></span>
+    Purpose-built for healthcare &amp; regulated industries
+  </div>
+
+  <!-- Headline -->
+  <h1 class="anim-2 relative z-10 font-sora font-extrabold leading-[1.04] tracking-tight mb-6"
+      style="font-size: clamp(40px, 7vw, 82px)">
+    <span class="grad-text">Empowering People.<br>Ensuring Compliance.</span>
+  </h1>
+
+  <!-- Subline -->
+  <p class="anim-3 relative z-10 text-slate-400 font-light leading-relaxed max-w-lg mb-10"
+     style="font-size: clamp(16px, 2vw, 20px)">
+    StaffSutra is the all-in-one training management platform that keeps your workforce certified, compliant, and audit-ready — without the chaos.
+  </p>
+
+  <!-- CTAs -->
+  <div class="anim-4 relative z-10 flex items-center gap-4 flex-wrap justify-center mb-16">
+    <a href="#"
+       class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-medium text-base transition-all hover:-translate-y-0.5"
+       style="background: linear-gradient(135deg,#0d9488,#0369a1); box-shadow: 0 8px 24px rgba(13,148,136,.3)">
+      Get started free
+      <i class="fas fa-arrow-right text-sm"></i>
+    </a>
+    <a href="#features"
+       class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-light text-base border border-white/[.15] hover:bg-white/[.05] hover:border-white/30 transition-all">
+      <i class="fas fa-play text-xs text-teal-light"></i>
+      See how it works
+    </a>
+  </div>
+
+  <!-- Trust bar -->
+  <div class="anim-5 relative z-10">
+    <p class="text-xs uppercase tracking-widest text-slate-500 font-light mb-5">Trusted by leading healthcare institutions</p>
+    <div class="flex items-center justify-center gap-6 sm:gap-10 flex-wrap">
+      <span class="font-sora text-xs font-semibold text-white/20 tracking-wider">CITY MEDICAL CENTER</span>
+      <span class="font-sora text-xs font-semibold text-white/20 tracking-wider">MERIDIAN HEALTH</span>
+      <span class="font-sora text-xs font-semibold text-white/20 tracking-wider">NOVA CLINIC</span>
+      <span class="font-sora text-xs font-semibold text-white/20 tracking-wider">GREENLEAF HOSPITAL</span>
+      <span class="font-sora text-xs font-semibold text-white/20 tracking-wider">APEX CARE</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     STATS STRIP
+══════════════════════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+<section style="background: rgba(255,255,255,.02)">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[.07]">
+    <div class="reveal flex flex-col items-center justify-center py-10 px-4 text-center">
+      <span class="font-sora font-extrabold text-4xl text-white tracking-tight">50<span class="text-teal-light">K+</span></span>
+      <span class="text-slate-400 text-sm font-light mt-1.5">Staff trained</span>
+    </div>
+    <div class="reveal flex flex-col items-center justify-center py-10 px-4 text-center">
+      <span class="font-sora font-extrabold text-4xl text-white tracking-tight">98<span class="text-teal-light">%</span></span>
+      <span class="text-slate-400 text-sm font-light mt-1.5">Compliance rate</span>
+    </div>
+    <div class="reveal flex flex-col items-center justify-center py-10 px-4 text-center">
+      <span class="font-sora font-extrabold text-4xl text-white tracking-tight">200<span class="text-teal-light">+</span></span>
+      <span class="text-slate-400 text-sm font-light mt-1.5">Organisations</span>
+    </div>
+    <div class="reveal flex flex-col items-center justify-center py-10 px-4 text-center">
+      <span class="font-sora font-extrabold text-4xl text-white tracking-tight">4.9<span class="text-teal-light">★</span></span>
+      <span class="text-slate-400 text-sm font-light mt-1.5">Average rating</span>
+    </div>
+  </div>
+</section>
+<hr class="section-divider">
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     FEATURES
+══════════════════════════════════════════════════════════════════════ -->
+<section id="features" class="py-28 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="max-w-xl mb-16">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>Features
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-4 reveal"
+          style="font-size: clamp(28px,4vw,46px)">Everything your compliance team needs</h2>
+      <p class="text-slate-400 font-light text-lg leading-relaxed reveal">
+        From enrollment to certificate — every step of the training lifecycle, managed in one place.
+      </p>
+    </div>
+
+    <!-- 3-col grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
+         style="background: rgba(255,255,255,.06); border-radius: 18px; overflow: hidden; border: .5px solid rgba(255,255,255,.07)">
+
+      <!-- F1 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-shield-halved text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Compliance Tracking</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Real-time compliance dashboards per department. Never miss an audit with automated status indicators and overdue alerts.
+        </p>
+      </div>
+
+      <!-- F2 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-users text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Smart Enrollment</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Bulk-enroll by department, role, or tag. Individual enrollments with instant notifications and deadline scheduling.
+        </p>
+      </div>
+
+      <!-- F3 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-chart-line text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Progress Analytics</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Individual and team-level progress tracking with visual completion bars, scores, and competency star ratings.
+        </p>
+      </div>
+
+      <!-- F4 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-clipboard-check text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Attendance Management</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Mark and manage attendance per session. Present, late, absent, excused — all tracked with notes and instant progress sync.
+        </p>
+      </div>
+
+      <!-- F5 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-certificate text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Certificate Issuance</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Auto-generate verifiable certificates with custom cert numbers, expiry dates, and downloadable PDFs for every staff member.
+        </p>
+      </div>
+
+      <!-- F6 -->
+      <div class="reveal feature-top card-glow relative flex flex-col gap-4 p-8 transition-all"
+           style="background: rgba(15,23,42,.97)">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(13,148,136,.1); border: .5px solid rgba(13,148,136,.2)">
+          <i class="fas fa-file-chart-column text-teal-light text-lg"></i>
+        </div>
+        <h3 class="font-sora font-semibold text-white text-base">Audit-Ready Reports</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">
+          Export compliance documentation per department or training type. One-click audit packages your inspectors will love.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+<section id="how-it-works" class="py-28 px-5 sm:px-8"
+         style="background: rgba(255,255,255,.015)">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center max-w-xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>How it works<span class="w-5 h-px bg-teal-DEFAULT"></span>
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-4 reveal"
+          style="font-size: clamp(28px,4vw,46px)">Up and running in minutes</h2>
+      <p class="text-slate-400 font-light text-lg leading-relaxed reveal">
+        Four simple steps from signup to your first compliant training session.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <!-- connector line (desktop only) -->
+      <div class="hidden lg:block absolute top-7 left-[18%] right-[18%] h-px"
+           style="background: linear-gradient(90deg, transparent, rgba(13,148,136,.4) 20%, rgba(13,148,136,.4) 80%, transparent)"></div>
+
+      <!-- Step 1 -->
+      <div class="reveal flex flex-col items-center text-center gap-4">
+        <div class="relative w-14 h-14 rounded-full flex items-center justify-center font-sora font-bold text-xl text-teal-light flex-shrink-0 z-10"
+             style="border: .5px solid rgba(13,148,136,.4); background: rgba(13,148,136,.07)">1</div>
+        <h3 class="font-sora font-semibold text-white text-base">Create your workspace</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">Set up your organisation, add departments, and import staff in bulk via CSV or manual entry.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="reveal flex flex-col items-center text-center gap-4">
+        <div class="relative w-14 h-14 rounded-full flex items-center justify-center font-sora font-bold text-xl text-teal-light flex-shrink-0 z-10"
+             style="border: .5px solid rgba(13,148,136,.4); background: rgba(13,148,136,.07)">2</div>
+        <h3 class="font-sora font-semibold text-white text-base">Schedule sessions</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">Build training sessions — in-person, online, or hybrid — with deadlines, instructors, and room assignments.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="reveal flex flex-col items-center text-center gap-4">
+        <div class="relative w-14 h-14 rounded-full flex items-center justify-center font-sora font-bold text-xl text-teal-light flex-shrink-0 z-10"
+             style="border: .5px solid rgba(13,148,136,.4); background: rgba(13,148,136,.07)">3</div>
+        <h3 class="font-sora font-semibold text-white text-base">Enroll &amp; notify</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">Bulk-enroll by department. Staff get instant notifications with session details and deadline reminders.</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="reveal flex flex-col items-center text-center gap-4">
+        <div class="relative w-14 h-14 rounded-full flex items-center justify-center font-sora font-bold text-xl text-teal-light flex-shrink-0 z-10"
+             style="border: .5px solid rgba(13,148,136,.4); background: rgba(13,148,136,.07)">4</div>
+        <h3 class="font-sora font-semibold text-white text-base">Track &amp; export</h3>
+        <p class="text-slate-400 text-sm font-light leading-relaxed">Monitor progress live, mark attendance, issue certificates, and export audit-ready reports instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="section-divider">
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     DASHBOARD PREVIEW MOCKUP
+══════════════════════════════════════════════════════════════════════ -->
+<section class="py-28 px-5 sm:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center max-w-xl mx-auto mb-14">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>Product<span class="w-5 h-px bg-teal-DEFAULT"></span>
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-4 reveal"
+          style="font-size: clamp(28px,4vw,46px)">A dashboard built for clarity</h2>
+      <p class="text-slate-400 font-light text-lg leading-relaxed reveal">
+        Everything you need at a glance — compliance health, team progress, and upcoming deadlines.
+      </p>
+    </div>
+
+    <!-- Browser mockup -->
+    <div class="reveal rounded-2xl overflow-hidden"
+         style="border: .5px solid rgba(255,255,255,.1); background: rgba(13,19,36,.8); box-shadow: 0 40px 80px rgba(0,0,0,.5)">
+
+      <!-- Browser bar -->
+      <!-- <div class="flex items-center gap-2 px-4 h-10 border-b"
+           style="background: rgba(255,255,255,.03); border-color: rgba(255,255,255,.07)">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-400 opacity-70"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 opacity-70"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-green-400 opacity-70"></span>
+        <div class="flex-1 mx-3 h-5 rounded-md flex items-center px-3"
+             style="background: rgba(255,255,255,.05)">
+          <span class="text-slate-500 text-xs">app.staffsutra.com/admin/dashboard</span>
+        </div>
+      </div> -->
+
+      <!-- Dashboard body -->
+      <!-- <div class="flex h-auto min-h-[400px]">
+
+        
+        <div class="hidden md:flex flex-col w-48 flex-shrink-0 border-r p-3 gap-1"
+             style="background: rgba(8,14,28,.6); border-color: rgba(255,255,255,.06)">
+          <div class="flex items-center gap-2 pb-3 mb-1 border-b" style="border-color: rgba(255,255,255,.07)">
+            <div class="w-6 h-6 rounded-md flex-shrink-0" style="background: linear-gradient(135deg,#0d9488,#0369a1)"></div>
+            <span class="font-sora font-bold text-sm text-white">Staff<span class="text-teal-light">Sutra</span></span>
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-medium text-white"
+               style="background: rgba(255,255,255,.08); border: .5px solid rgba(255,255,255,.1)">
+            <i class="fas fa-gauge-high text-teal-light w-3"></i> Dashboard
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-400 hover:bg-white/[.04] transition-colors cursor-pointer">
+            <i class="fas fa-chalkboard-user w-3 opacity-50"></i> Training Mgmt
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-400">
+            <i class="fas fa-user-plus w-3 opacity-50"></i> Enrollment
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-400">
+            <i class="fas fa-chart-line w-3 opacity-50"></i> Progress
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-400">
+            <i class="fas fa-medal w-3 opacity-50"></i> Performance
+          </div>
+          <div class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs text-slate-400">
+            <i class="fas fa-file-chart-column w-3 opacity-50"></i> Reports
+          </div>
+          <div class="mt-auto pt-3 border-t" style="border-color: rgba(255,255,255,.07)">
+            <div class="text-xs font-medium text-slate-400 mb-1.5 px-1">Overall Compliance</div>
+            <div class="comp-bar"><div class="comp-fill" style="width: 94%"></div></div>
+            <div class="flex justify-between mt-1">
+              <span class="text-xs text-slate-500">Overall</span>
+              <span class="text-xs font-semibold text-teal-light">94%</span>
+            </div>
+          </div>
+        </div>
+
+     
+        <div class="flex-1 p-4 flex flex-col gap-3 overflow-hidden">
+
+         
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div class="rounded-xl p-3" style="background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.07)">
+              <div class="font-sora font-bold text-2xl text-teal-light leading-none">94.2%</div>
+              <div class="text-xs text-slate-400 mt-1">Compliance rate</div>
+            </div>
+            <div class="rounded-xl p-3" style="background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.07)">
+              <div class="font-sora font-bold text-2xl text-white leading-none">248</div>
+              <div class="text-xs text-slate-400 mt-1">Active staff</div>
+            </div>
+            <div class="rounded-xl p-3" style="background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.07)">
+              <div class="font-sora font-bold text-2xl text-white leading-none">12</div>
+              <div class="text-xs text-slate-400 mt-1">Live sessions</div>
+            </div>
+            <div class="rounded-xl p-3" style="background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.07)">
+              <div class="font-sora font-bold text-2xl text-red-400 leading-none">7</div>
+              <div class="text-xs text-slate-400 mt-1">Overdue</div>
+            </div>
+          </div>
+
+       
+          <div class="grid grid-cols-3 gap-2.5 flex-1">
+          
+            <div class="col-span-2 rounded-xl p-3 flex flex-col"
+                 style="background: rgba(255,255,255,.03); border: .5px solid rgba(255,255,255,.07)">
+              <p class="text-xs text-slate-400 mb-3">Compliance trend — last 6 months</p>
+              <div class="flex items-end gap-2 flex-1" style="min-height: 80px">
+                <div class="flex-1 rounded-t-md" style="height:60%; background: rgba(13,148,136,.25)"></div>
+                <div class="flex-1 rounded-t-md" style="height:68%; background: rgba(13,148,136,.35)"></div>
+                <div class="flex-1 rounded-t-md" style="height:75%; background: rgba(13,148,136,.45)"></div>
+                <div class="flex-1 rounded-t-md" style="height:82%; background: rgba(13,148,136,.55)"></div>
+                <div class="flex-1 rounded-t-md" style="height:88%; background: rgba(13,148,136,.7)"></div>
+                <div class="flex-1 rounded-t-md" style="height:94%; background: #0d9488"></div>
+              </div>
+              <div class="flex justify-between mt-2">
+                <span class="text-xs text-slate-600">Jan</span>
+                <span class="text-xs text-slate-600">Feb</span>
+                <span class="text-xs text-slate-600">Mar</span>
+                <span class="text-xs text-slate-600">Apr</span>
+                <span class="text-xs text-slate-600">May</span>
+                <span class="text-xs text-slate-600">Jun</span>
+              </div>
+            </div>
+
+            
+            <div class="rounded-xl p-3 flex flex-col items-center justify-center"
+                 style="background: rgba(255,255,255,.03); border: .5px solid rgba(255,255,255,.07)">
+              <p class="text-xs text-slate-400 mb-2 self-start">Completion</p>
+              <svg viewBox="0 0 80 80" class="w-16 h-16">
+                <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="11"/>
+                <circle cx="40" cy="40" r="30" fill="none" stroke="#0d9488" stroke-width="11"
+                        stroke-dasharray="178 188" stroke-dashoffset="47" stroke-linecap="round"/>
+                <text x="40" y="44" text-anchor="middle" fill="white" font-size="13" font-weight="700" font-family="Sora,sans-serif">94%</text>
+              </svg>
+            </div>
+          </div>
+
+         
+          <div class="rounded-xl p-3" style="background: rgba(255,255,255,.03); border: .5px solid rgba(255,255,255,.07)">
+            <p class="text-xs text-slate-400 mb-2.5 font-medium">Recent activity</p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
+                     style="background: linear-gradient(135deg,#0d9488,#0369a1)">EC</div>
+                <span class="text-xs text-white flex-1">Emily Carter · BLS Certification</span>
+                <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(13,148,136,.15);color:#2dd4bf">Completed</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
+                     style="background: linear-gradient(135deg,#1e3a5f,#0369a1)">JO</div>
+                <span class="text-xs text-white flex-1">James Okafor · Fire Safety</span>
+                <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,.15);color:#fbbf24">In Progress</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
+                     style="background: linear-gradient(135deg,#7c3aed,#1e3a5f)">PN</div>
+                <span class="text-xs text-white flex-1">Priya Nair · HIPAA Compliance</span>
+                <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(248,113,113,.15);color:#f87171">Overdue</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+      <img src="assets/images/staff-sutra-screens.png">
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     COMPLIANCE SECTION
+══════════════════════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+<section id="compliance" class="py-28 px-5 sm:px-8" style="background:rgba(255,255,255,.015)">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Left -->
+    <div>
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-5">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>Compliance
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-5 reveal"
+          style="font-size: clamp(28px,4vw,46px)">Audit-ready, always</h2>
+
+      <div class="flex flex-col gap-4">
+        <div class="reveal card-glow flex items-start gap-4 p-5 rounded-xl transition-all"
+             style="border: .5px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02)">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+               style="background: rgba(13,148,136,.12); border: .5px solid rgba(13,148,136,.2)">
+            <i class="fas fa-check text-teal-light text-xs"></i>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white mb-1">Real-time compliance scoring</p>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">Every department and individual has a live compliance percentage updated the moment attendance is marked.</p>
+          </div>
+        </div>
+
+        <div class="reveal card-glow flex items-start gap-4 p-5 rounded-xl transition-all"
+             style="border: .5px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02)">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+               style="background: rgba(13,148,136,.12); border: .5px solid rgba(13,148,136,.2)">
+            <i class="fas fa-bell text-teal-light text-xs"></i>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white mb-1">Automated deadline alerts</p>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">Proactive notifications to staff and managers before deadlines are breached — no more surprises during inspections.</p>
+          </div>
+        </div>
+
+        <div class="reveal card-glow flex items-start gap-4 p-5 rounded-xl transition-all"
+             style="border: .5px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02)">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+               style="background: rgba(13,148,136,.12); border: .5px solid rgba(13,148,136,.2)">
+            <i class="fas fa-download text-teal-light text-xs"></i>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white mb-1">One-click export packages</p>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">Generate audit-ready PDF reports per session, department, or org-wide — formatted exactly as regulators expect.</p>
+          </div>
+        </div>
+
+        <div class="reveal card-glow flex items-start gap-4 p-5 rounded-xl transition-all"
+             style="border: .5px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02)">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+               style="background: rgba(13,148,136,.12); border: .5px solid rgba(13,148,136,.2)">
+            <i class="fas fa-id-card text-teal-light text-xs"></i>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white mb-1">Verifiable certificates</p>
+            <p class="text-sm font-light text-slate-400 leading-relaxed">Every certificate has a unique ID, issue date, and expiry — downloadable by staff and verifiable by auditors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Compliance widget -->
+    <div class="reveal">
+      <div class="rounded-2xl p-8"
+           style="background: rgba(13,51,88,.45); border: .5px solid rgba(13,148,136,.2); backdrop-filter: blur(10px)">
+        <div class="text-center mb-8">
+          <div class="font-sora font-extrabold text-teal-light leading-none tracking-tight"
+               style="font-size: 64px; letter-spacing: -3px">94%</div>
+          <p class="text-slate-400 text-sm font-light mt-1">Overall compliance — City Medical Center</p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div>
+            <div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Nursing</span><span class="text-white font-medium">98%</span></div>
+            <div class="comp-bar"><div class="comp-fill" style="width:98%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-2"><span class="text-slate-400">ICU</span><span class="text-white font-medium">96%</span></div>
+            <div class="comp-bar"><div class="comp-fill" style="width:96%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Cardiology</span><span class="text-white font-medium">91%</span></div>
+            <div class="comp-bar"><div class="comp-fill" style="width:91%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Emergency</span><span class="text-white font-medium">87%</span></div>
+            <div class="comp-bar"><div class="comp-fill" style="width:87%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-2"><span class="text-slate-400">Radiology</span><span class="text-white font-medium">79%</span></div>
+            <div class="comp-bar"><div class="comp-fill" style="width:79%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<hr class="section-divider">
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════════════════════ -->
+<section id="testimonials" class="py-28 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>Customers<span class="w-5 h-px bg-teal-DEFAULT"></span>
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-4 reveal"
+          style="font-size: clamp(28px,4vw,46px)">Trusted by compliance teams</h2>
+      <p class="text-slate-400 font-light text-lg reveal">What training administrators and clinical managers say about StaffSutra.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- T1 -->
+      <div class="reveal card-glow flex flex-col gap-5 p-7 rounded-2xl transition-all"
+           style="border: .5px solid rgba(255,255,255,.08); background: rgba(15,23,42,.9)">
+        <div class="flex gap-0.5">
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+        </div>
+        <p class="text-slate-300 text-sm font-light leading-relaxed italic flex-1">
+          "We cut our pre-audit preparation time from two weeks to a single afternoon. StaffSutra's export reports are exactly what our inspectors want to see."
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: rgba(255,255,255,.07)">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white/80 flex-shrink-0"
+               style="background: linear-gradient(135deg,#0d3358,#0d9488)">SR</div>
+          <div>
+            <p class="text-sm font-medium text-white">Sandra Reeves</p>
+            <p class="text-xs text-slate-400 font-light">Compliance Director · Meridian Health</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 (featured) -->
+      <div class="reveal card-glow flex flex-col gap-5 p-7 rounded-2xl transition-all"
+           style="border: .5px solid rgba(13,148,136,.35); background: rgba(13,51,88,.35)">
+        <div class="flex gap-0.5">
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+        </div>
+        <p class="text-slate-300 text-sm font-light leading-relaxed italic flex-1">
+          "Our nursing team compliance went from 72% to 98% in one quarter. The real-time dashboard means I can see problems before they become audit findings."
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: rgba(255,255,255,.07)">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white/80 flex-shrink-0"
+               style="background: linear-gradient(135deg,#0d3358,#0d9488)">MK</div>
+          <div>
+            <p class="text-sm font-medium text-white">Marcus Kowalski</p>
+            <p class="text-xs text-slate-400 font-light">Head of Training · Nova Clinic</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="reveal card-glow flex flex-col gap-5 p-7 rounded-2xl transition-all"
+           style="border: .5px solid rgba(255,255,255,.08); background: rgba(15,23,42,.9)">
+        <div class="flex gap-0.5">
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+          <i class="fas fa-star text-amber-400 text-xs"></i>
+        </div>
+        <p class="text-slate-300 text-sm font-light leading-relaxed italic flex-1">
+          "The staff portal is genuinely loved by our employees. They can see their own progress, download certificates, and know exactly where they stand."
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: rgba(255,255,255,.07)">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white/80 flex-shrink-0"
+               style="background: linear-gradient(135deg,#0d3358,#0d9488)">AL</div>
+          <div>
+            <p class="text-sm font-medium text-white">Amara Lim</p>
+            <p class="text-xs text-slate-400 font-light">HR Manager · Greenleaf Hospital</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     PRICING
+══════════════════════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+<section id="pricing" class="py-28 px-5 sm:px-8" style="background: rgba(255,255,255,.015)">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>Pricing<span class="w-5 h-px bg-teal-DEFAULT"></span>
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight mb-4 reveal"
+          style="font-size: clamp(28px,4vw,46px)">Simple, transparent pricing</h2>
+      <p class="text-slate-400 font-light text-lg reveal">All plans include a 14-day free trial. No credit card required.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Starter -->
+      <div class="reveal flex flex-col p-7 rounded-2xl transition-all card-glow"
+           style="border: .5px solid rgba(255,255,255,.08); background: rgba(255,255,255,.02)">
+        <p class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-4">Starter</p>
+        <div class="flex items-start gap-0.5 mb-1">
+          <span class="text-lg text-white font-light mt-2">$</span>
+          <span class="font-sora font-extrabold text-white tracking-tight" style="font-size:48px;line-height:1">29</span>
+        </div>
+        <p class="text-slate-400 text-sm font-light mb-5">per month · up to 50 staff</p>
+        <p class="text-slate-400 text-sm font-light leading-relaxed mb-6 border-b pb-6" style="border-color:rgba(255,255,255,.07)">
+          Perfect for small clinics and single-department teams getting started with compliance tracking.
+        </p>
+        <ul class="flex flex-col gap-3 flex-1">
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Up to 50 staff members</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Training session management</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Attendance tracking</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Basic compliance reports</li>
+          <li class="flex items-center gap-2.5 text-sm text-white/25 font-light"><i class="fas fa-check text-white/20 text-xs w-3"></i> Certificate generation</li>
+          <li class="flex items-center gap-2.5 text-sm text-white/25 font-light"><i class="fas fa-check text-white/20 text-xs w-3"></i> Multi-department analytics</li>
+        </ul>
+        <button class="mt-8 w-full py-3 rounded-xl text-sm font-medium text-white border border-white/[.15] hover:bg-white/[.05] transition-all">
+          Start free trial
+        </button>
+      </div>
+
+      <!-- Professional (featured) -->
+      <div class="reveal flex flex-col p-7 rounded-2xl relative"
+           style="border: .5px solid rgba(13,148,136,.5); background: rgba(13,51,88,.4)">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <span class="badge-pulse inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-white"
+                style="background: linear-gradient(135deg,#0d9488,#0369a1)">
+            <i class="fas fa-star text-xs"></i> Most Popular
+          </span>
+        </div>
+        <p class="text-xs uppercase tracking-widest text-teal-light font-medium mb-4 mt-1">Professional</p>
+        <div class="flex items-start gap-0.5 mb-1">
+          <span class="text-lg text-white font-light mt-2">$</span>
+          <span class="font-sora font-extrabold text-white tracking-tight" style="font-size:48px;line-height:1">89</span>
+        </div>
+        <p class="text-slate-400 text-sm font-light mb-5">per month · up to 250 staff</p>
+        <p class="text-slate-400 text-sm font-light leading-relaxed mb-6 border-b pb-6" style="border-color:rgba(255,255,255,.1)">
+          The complete compliance platform for mid-size hospitals and multi-department healthcare organisations.
+        </p>
+        <ul class="flex flex-col gap-3 flex-1">
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Up to 250 staff members</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> All Starter features</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Certificate generation &amp; PDF</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Performance dashboards</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Audit-ready export packages</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Staff self-service portal</li>
+        </ul>
+        <button class="mt-8 w-full py-3 rounded-xl text-sm font-medium text-white transition-all hover:opacity-90"
+                style="background: linear-gradient(135deg,#0d9488,#0369a1)">
+          Start free trial
+        </button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="reveal flex flex-col p-7 rounded-2xl transition-all card-glow"
+           style="border: .5px solid rgba(255,255,255,.08); background: rgba(255,255,255,.02)">
+        <p class="text-xs uppercase tracking-widest text-slate-400 font-medium mb-4">Enterprise</p>
+        <div class="font-sora font-extrabold text-white tracking-tight mb-1 mt-2" style="font-size:36px;line-height:1">Custom</div>
+        <p class="text-slate-400 text-sm font-light mb-5">unlimited staff · SLA included</p>
+        <p class="text-slate-400 text-sm font-light leading-relaxed mb-6 border-b pb-6" style="border-color:rgba(255,255,255,.07)">
+          For large hospital networks and regulated enterprises that need custom integrations and dedicated support.
+        </p>
+        <ul class="flex flex-col gap-3 flex-1">
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Unlimited staff</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> All Professional features</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> SSO &amp; LDAP integration</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Custom onboarding</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> Dedicated account manager</li>
+          <li class="flex items-center gap-2.5 text-sm text-slate-300 font-light"><i class="fas fa-check text-teal-light text-xs w-3"></i> 99.9% uptime SLA</li>
+        </ul>
+        <button class="mt-8 w-full py-3 rounded-xl text-sm font-medium text-white border border-white/[.15] hover:bg-white/[.05] transition-all">
+          Contact sales
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+<hr class="section-divider">
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     FAQ
+══════════════════════════════════════════════════════════════════════ -->
+<section class="py-28 px-5 sm:px-8">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-teal-light font-medium mb-4">
+        <span class="w-5 h-px bg-teal-DEFAULT"></span>FAQ<span class="w-5 h-px bg-teal-DEFAULT"></span>
+      </div>
+      <h2 class="font-sora font-bold tracking-tight leading-tight reveal" style="font-size: clamp(28px,4vw,42px)">
+        Common questions
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-2" id="faq">
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Is StaffSutra suitable for organizations of all sizes?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Absolutely Yes! StaffSutra is designed for small businesses, growing organizations, and large enterprises looking to manage workforce training and compliance efficiently.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">How does the 14-day free trial work?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Sign up and get full access to all Professional plan features for 14 days. No credit card required. At the end of the trial, choose a plan or your data remains safely stored for 30 days while you decide.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Can I import existing staff and training data?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Yes. StaffSutra supports bulk CSV import for staff, departments, and historical training records. Enterprise customers get dedicated onboarding support including data migration assistance.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">What types of training sessions are supported?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">StaffSutra supports in-person, online, and hybrid training sessions. You can assign instructors, set deadlines, manage room locations, and track attendance for all session types from a single dashboard.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Can staff access their own training records?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Yes. Every staff member gets a personal portal where they can view their training schedule, track their own progress, download certificates, and receive notifications — all without needing admin access.</p>
+        </div>
+      </div>
+
+
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Can I manage multiple departments or locations?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Yes. StaffSutra allows you to organize employees by department, team, business unit, or location while maintaining centralized reporting and compliance tracking.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Does StaffSutra send reminders for upcoming or expired certifications?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Yes. Automated notifications help employees and managers stay informed about upcoming training sessions, certification renewals, and compliance deadlines.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal rounded-xl overflow-hidden" style="border: .5px solid rgba(255,255,255,.08)">
+        <button class="faq-toggle w-full flex items-center justify-between p-5 text-left hover:bg-white/[.03] transition-colors"
+                onclick="toggleFaq(this)">
+          <span class="text-sm font-medium text-white pr-4">Can StaffSutra generate compliance and audit reports?</span>
+          <i class="fas fa-plus text-teal-light text-sm flex-shrink-0 faq-icon transition-transform"></i>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5">
+          <p class="text-sm text-slate-400 font-light leading-relaxed">Yes. StaffSutra provides real-time dashboards and downloadable reports to help organizations demonstrate compliance and maintain audit readiness.</p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════════════════════════ -->
+<hr class="section-divider">
+<section class="relative py-28 px-5 sm:px-8 text-center overflow-hidden">
+  <div class="glow-blob w-[500px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-70"
+       style="background: radial-gradient(circle, rgba(13,148,136,.18) 0%, transparent 70%)"></div>
+  <div class="relative z-10 max-w-2xl mx-auto">
+    <h2 class="font-sora font-extrabold tracking-tight leading-tight mb-5 reveal"
+        style="font-size: clamp(32px,5vw,56px)">
+      Ready to simplify compliance?
+    </h2>
+    <p class="text-slate-400 font-light text-xl leading-relaxed mb-10 reveal">
+      Join 200+ organisations already using StaffSutra to keep their teams trained and audit-ready.
+    </p>
+    <div class="flex items-center justify-center gap-4 flex-wrap mb-6 reveal">
+      <a href="#"
+         class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-medium text-base transition-all hover:-translate-y-0.5"
+         style="background: linear-gradient(135deg,#0d9488,#0369a1); box-shadow: 0 8px 32px rgba(13,148,136,.3)">
+        Start your free 14-day trial
+        <i class="fas fa-arrow-right text-sm"></i>
+      </a>
+      <a href="#"
+         class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-light text-base border border-white/[.15] hover:bg-white/[.05] hover:border-white/30 transition-all">
+        Book a demo
+      </a>
+    </div>
+    <p class="text-slate-500 text-sm font-light reveal">No credit card required · Cancel anytime · Setup in under 10 minutes</p>
+  </div>
+</section>
+<hr class="section-divider">
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════════════ -->
+<footer style="background: rgba(0,0,0,.35)">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-8">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+
+      <!-- Brand col -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="https://shiventech.co.in/staffsutra.html" class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+               style="background: linear-gradient(135deg,#0d9488,#0369a1)">
+            <i class="fas fa-shield-halved text-white text-sm"></i>
+          </div>
+          <span class="font-sora font-bold text-lg text-white">Staff<span class="text-teal-light">Sutra</span></span>
+        </a>
+        <p class="text-slate-400 text-sm font-light leading-relaxed max-w-[200px]">
+          Empowering People. Ensuring Compliance. The all-in-one staff training management platform.
+        </p>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="#" class="w-8 h-8 rounded-lg border flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+             style="border-color:rgba(255,255,255,.12)">
+            <i class="fab fa-twitter text-xs"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg border flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+             style="border-color:rgba(255,255,255,.12)">
+            <i class="fab fa-linkedin-in text-xs"></i>
+          </a>
+          <a href="#" class="w-8 h-8 rounded-lg border flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+             style="border-color:rgba(255,255,255,.12)">
+            <i class="fab fa-github text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest font-semibold text-white mb-5">Product</p>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#features"     class="text-sm text-slate-400 hover:text-white transition-colors font-light">Features</a></li>
+          <li><a href="#pricing"      class="text-sm text-slate-400 hover:text-white transition-colors font-light">Pricing</a></li>
+          <li><a href="#how-it-works" class="text-sm text-slate-400 hover:text-white transition-colors font-light">How it works</a></li>
+          <li><a href="#compliance"   class="text-sm text-slate-400 hover:text-white transition-colors font-light">Compliance</a></li>
+          <li><a href="#testimonials" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Customers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest font-semibold text-white mb-5">Company</p>
+        <ul class="flex flex-col gap-3">
+          <li><a href="https://shiventech.co.in/blog.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Blog</a></li>
+          <li><a href="https://shiventech.co.in/" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Services</a></li>
+          <li><a href="https://shiventech.co.in/contact.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Partners</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest font-semibold text-white mb-5">Legal</p>
+        <ul class="flex flex-col gap-3">
+          <li><a href="https://shiventech.co.in/staffsutra/privacy-policy.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Privacy Policy</a></li>
+          <li><a href="https://shiventech.co.in/staffsutra/terms-of-service.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Terms of Service</a></li>
+          <li><a href="https://shiventech.co.in/staffsutra/security.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Security</a></li>
+          <li><a href="https://shiventech.co.in/staffsutra/cookie-policy.html" class="text-sm text-slate-400 hover:text-white transition-colors font-light">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <!-- <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t"
+         style="border-color: rgba(255,255,255,.07)">
+      <p class="text-xs text-white/25 font-light">© 2025 StaffSutra. All rights reserved.</p>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-white/25 px-2.5 py-1 rounded-md border" style="border-color:rgba(255,255,255,.08)">HIPAA</span>
+        <span class="text-xs text-white/25 px-2.5 py-1 rounded-md border" style="border-color:rgba(255,255,255,.08)">ISO 27001</span>
+        <span class="text-xs text-white/25 px-2.5 py-1 rounded-md border" style="border-color:rgba(255,255,255,.08)">SOC 2</span>
+      </div>
+    </div> -->
+
+    <div class="text-center pt-6 border-t"
+         style="border-color: rgba(255,255,255,.07)">
+        <p class="text-xs text-white/25 font-light">
+            © 2026 StaffSutra. All rights reserved.
+        </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════════════════════ -->
+<script>
+  // ── Navbar scroll effect ──────────────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.style.background = 'rgba(15,23,42,.97)';
+      navbar.style.boxShadow = '0 1px 0 rgba(255,255,255,.06)';
+    } else {
+      navbar.style.background = 'rgba(15,23,42,.88)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // ── Mobile menu ───────────────────────────────────────────────────
+  let menuOpen = false;
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    const menu = document.getElementById('mobile-menu');
+    const b1 = document.getElementById('bar1');
+    const b2 = document.getElementById('bar2');
+    const b3 = document.getElementById('bar3');
+    if (menuOpen) {
+      menu.classList.remove('hidden');
+      b1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+      b2.style.opacity = '0';
+      b3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+      b3.style.width = '20px';
+    } else {
+      closeMenu();
+    }
+  }
+  function closeMenu() {
+    menuOpen = false;
+    document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('bar1').style.transform = '';
+    document.getElementById('bar2').style.opacity = '';
+    document.getElementById('bar3').style.transform = '';
+    document.getElementById('bar3').style.width = '';
+  }
+
+  // ── Scroll reveal ─────────────────────────────────────────────────
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 60 * (entry.target.dataset.delay || 0));
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach((el, i) => {
+    revealObserver.observe(el);
+  });
+
+  // Staggered reveal for grid children
+  document.querySelectorAll('.grid .reveal').forEach((el, i) => {
+    el.dataset.delay = (i % 3);
+    el.style.transitionDelay = `${(i % 4) * 0.07}s`;
+  });
+
+  // ── FAQ accordion ─────────────────────────────────────────────────
+  function toggleFaq(btn) {
+    const answer  = btn.nextElementSibling;
+    const icon    = btn.querySelector('.faq-icon');
+    const isOpen  = !answer.classList.contains('hidden');
+
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+    document.querySelectorAll('.faq-icon').forEach(i => {
+      i.classList.remove('rotate-45');
+      i.closest('button').parentElement.style.borderColor = 'rgba(255,255,255,.08)';
+      i.closest('button').parentElement.style.background = 'transparent';
+    });
+
+    if (!isOpen) {
+      answer.classList.remove('hidden');
+      icon.classList.add('rotate-45');
+      btn.parentElement.style.borderColor = 'rgba(13,148,136,.3)';
+      btn.parentElement.style.background = 'rgba(13,148,136,.03)';
+    }
+  }
+</script>
+
+</body>
+</html>
